@@ -13,6 +13,11 @@ public class AddressBook {
      * create an arraylist,create object name as addressList
      */
     private ArrayList<Contact> addressList = new ArrayList<Contact>();
+    private String name;
+
+    public AddressBook(String name) {
+        this.name = name;
+    }
 
     /**
      * creating parameterized method named as setAddressList
@@ -32,7 +37,13 @@ public class AddressBook {
     public ArrayList<Contact> getAddressList() {
         return addressList;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getName() {
+        return name;
+    }
     /**
      * create a addcontact method.this is parameterized method
      * @param contact - persons contact details.
