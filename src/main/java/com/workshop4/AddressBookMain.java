@@ -5,7 +5,10 @@ package com.workshop4;
  *        city, state, zip, phone number and email...
  * UC2 :- Ability to add a new Contact to Address Book
  * UC3 :- Ability to edit existing contact person using their name
+ * UC4 :- Ability to delete a person using person's name
+ *
  */
+
 
 /**
  * import scanner class
@@ -64,7 +67,7 @@ public class AddressBookMain {
          * These utilities include null-safe or null-tolerant methods for computing the hash code of an object,
          * returning a string for an object, and comparing two objects.
          */
-        if(Objects.nonNull(contact)) {
+        if (Objects.nonNull(contact)) {
             /**
              * calling editExistingContact method from contactService object
              */
@@ -90,7 +93,7 @@ public class AddressBookMain {
          * will find that person by his name in the address book,
          * then delete that name from the address book
          */
-        if(Objects.nonNull(addressBook.searchByName(name))){
+        if (Objects.nonNull(addressBook.searchByName(name))) {
             /**
              * calling deleteContact method for delete person name in addressBook object
              */
@@ -131,9 +134,6 @@ public class AddressBookMain {
          * create object for ContactService class,object name as contactService
          */
         contactService = new ContactService(sc);
-        //System.out.println(contact+"\n");
-        //addressBook.addContact(contact);
-        //System.out.println("Contact is added to addressBook");
 
         /**
          * repeat is true

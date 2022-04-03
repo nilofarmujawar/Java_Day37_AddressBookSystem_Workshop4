@@ -4,7 +4,7 @@ package com.workshop4;
  * import scanner class
  */
 import java.util.Scanner;
-import com.workshop4.Contact;
+
 
 /**
  * create a class name as ContactService
@@ -337,7 +337,7 @@ public class ContactService {
             return;
         }
         /**
-         * display all details we have edited 
+         * display all details we have edited
          */
         System.out.println(contact);
     }
