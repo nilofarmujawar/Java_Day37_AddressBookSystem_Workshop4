@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.workshop4.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-01T11:35:47" hostname="DESKTOP-617Q1NQ" time="1.539">
-  <properties/>
-  <testcase name="givenFirstName_WhenInFormat_ShouldReturnTrue()" classname="com.workshop4.AddressBookTest" time="1.539"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
