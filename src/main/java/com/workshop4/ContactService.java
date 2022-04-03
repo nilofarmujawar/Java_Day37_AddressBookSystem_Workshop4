@@ -4,6 +4,7 @@ package com.workshop4;
  * import scanner class
  */
 import java.util.Scanner;
+import com.workshop4.Contact;
 
 /**
  * create a class name as ContactService
@@ -28,13 +29,9 @@ public class ContactService {
         this.validator = new Validator();
     }
 
-    /**
-     * create a method name as createPerson
-     * this is parameterized method
-     * @param contact-  This is maintains contact information
-     * @param sc - sacnner i/p
-     */
-    public void createPerson(Contact contact, Scanner sc) {
+
+    public Contact createContact() {
+        Contact contact = new Contact();
         /**
          * variables in all string data type
          */
@@ -200,5 +197,148 @@ public class ContactService {
             }
         }
         System.out.println("\nContact is added successfully\n");
+        return contact;
+    }
+
+    /**
+     * create a parameterized method name as editExistingContact
+     * in this method we edit the existing person name
+     * @param contact - all the information saved
+     */
+    public void editExistingContact(Contact contact) {
+        /**
+         * while condition is true
+         */
+        while(true) {
+            /**
+             * display those options on console
+             * Select the option you want to edit
+             */
+            System.out.println("Options to update contact:");
+            /**
+             * options
+             */
+            System.out.println("1 (FirstName)\n2 (LastName)\n3 (Address)\n4 (City)\n5 (State)\n6 (Zip)\n7 (Phone)\n8 (Email)\n9 (Exit)");
+            int options = Integer.parseInt(sc.nextLine());
+            /**
+             * using switch case
+             */
+            switch (options) {
+                /**
+                 * u choose option 1 in option to update contact
+                 * enter new first name what u want then,
+                 * The edited name is set on the previous name in the contact.
+                 */
+                case 1:
+                    System.out.println("Enter New FirstName");
+                    String newFirstName = sc.nextLine();
+                    contact.setFirstName(newFirstName);
+                    break;
+                /**
+                 * u choose option 2 in option to update contact
+                 * enter person new last name what u want then,
+                 * The edited last name is set on the previous last name in the contact.
+                 */
+                case 2:
+                    System.out.println("Enter New LastName");
+                    String newLastName= sc.nextLine();
+                    contact.setLastName(newLastName);
+                    break;
+                /**
+                 * u choose option 3 in option to update contact
+                 * enter person new address what u want then,
+                 * The edited address is set on the previous address in the contact.
+                 */
+                case 3:
+                    System.out.println("Enter New Address");
+                    String newAddress = sc.nextLine();
+                    contact.setAddress(newAddress);
+                    break;
+                /**
+                 * u choose option 4 in option to update contact
+                 * enter new city name what u want then,
+                 * The edited city name is set on the previous city name in the contact.
+                 */
+                case 4:
+                    System.out.println("Enter New City");
+                    String newCity = sc.nextLine();
+                    contact.setCity(newCity);
+                    break;
+                /**
+                 * u choose option 5 in option to update contact
+                 * enter new state name what u want then,
+                 * The edited state name is set on the previous state name in the contact.
+                 */
+                case 5:
+                    System.out.println("Enter State");
+                    String newState = sc.nextLine();
+                    contact.setState(newState);
+                    break;
+                /**
+                 * u choose option 6 in option to update contact
+                 * enter new zip code what u want then,
+                 * The edited zip code is set on the previous zip code in the contact.
+                 */
+                case 6:
+                    System.out.println("Enter New Zip");
+                    String newZip= sc.nextLine();
+                    contact.setZip(newZip);
+                    break;
+                /**
+                 * u choose option 7 in option to update contact
+                 * enter new phone number what u want then,
+                 * The edited phone number is set on the previous phone number in the contact.
+                 */
+                case 7:
+                    System.out.println("Enter New Phone");
+                    String newPhone = sc.nextLine();
+                    contact.setPhoneNumber(newPhone);
+                    break;
+                /**
+                 * u choose option 8 in option to update contact
+                 * enter new email id what u want then,
+                 * The edited email id is set on the previous email id in the contact.
+                 */
+                case 8:
+                    System.out.println("Enter New Email");
+                    String newEmail = sc.nextLine();
+                    contact.setFirstName(newEmail);
+                    break;
+                /**
+                 * if u choose option 9 then exist in this process
+                 */
+                case 9:
+                    System.out.println("Exit");
+                    return;
+                /**
+                 * if u choose option 10 ,11 like this,that time display this option on console
+                 */
+                default:
+                    System.out.println("Invalid Entry");
+                    break;
+            }
+        }
+    }
+
+    /**
+     * create a method name as displayContact,this is parameterized method
+     * A method that displays the data we have edited
+     * @param contact - all person details stored
+     */
+    public void displayContact(Contact contact) {
+        /**
+         * if contact is empty
+         */
+        if (contact == null) {
+            /**
+             * then display this msg on console
+             */
+            System.out.println("Contact not found");
+            return;
+        }
+        /**
+         * display all details we have edited 
+         */
+        System.out.println(contact);
     }
 }
