@@ -29,7 +29,7 @@ class ValidatorTest {
     }
 
     @Test
-    public void testValidateLastName() {
+    public void testValidateLastName() { 
         try {
             Validator obj = new Validator();
             String lastName = "Mujawar";
