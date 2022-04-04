@@ -127,4 +127,16 @@ public class AddressBook {
             return "\nNo contact found";
         return str.toString();
     }
+
+    /**
+     * create a mmethod name as isExistAlready
+     * @param name - book name
+     * @return book counts no
+     */
+    public boolean isExistAlready(String name) {
+        int count = (int) addressList.stream().filter(contact->contact.equals(name)).count();
+        System.out.println("address:");
+        return count!=0;
+    }
+
 }

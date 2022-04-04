@@ -1,6 +1,7 @@
 package com.workshop4;
 
 /**
+ /**
  * import scanner class
  */
 import java.util.Scanner;
@@ -16,17 +17,20 @@ public class ContactService {
      */
     private Scanner sc;
     private Validator validator;
+    private AddressBook addressBook;
 
     /**
      * create a parameterized constructor name as ContactService
      * @param sc- scanner i/p
      */
-    public ContactService(Scanner sc ) {
+
+    public ContactService(Scanner sc, AddressBook address) {
         /**
          *  The "this" keyword is used to refer to the current object.
          */
         this.sc= sc;
         this.validator = new Validator();
+        this.addressBook = addressBook;
     }
 
 
@@ -92,6 +96,25 @@ public class ContactService {
                  * calling setAddress method from contact object
                  */
                 contact.setAddress(address); break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        /**
+         * if duplicate first name and last name found then return null
+         */
+        String name = firstName+" "+lastName;
+        boolean duplicate = addressBook.isExistAlready(name);
+        if (duplicate) {
+            return null;
+        }
+
+        while (true) {
+            try {
+                address = sc.nextLine();
+                validator.validateAddress(address);
+                contact.setAddress(address);
+                break;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

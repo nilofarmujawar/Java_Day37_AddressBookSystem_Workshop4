@@ -123,10 +123,12 @@ public class AddressBookMultiplePerson {
      * create a method name as createContact
      */
     public void createContact() {
-        /**
-         * calling addContact method for add new contact in address book from addressBook object
-         */
-        addressBook.addContact(contactService.createContact());
+        Contact contact = contactService.createContact();
+        if (contact==null) {
+            System.out.println("Already exist in Address Book");
+            return;
+        }
+        addressBook.addContact(contact);
     }
 
 
@@ -143,7 +145,7 @@ public class AddressBookMultiplePerson {
         /**
          * create object for ContactService class,object name as contactService
          */
-        contactService = new ContactService(sc);
+        contactService = new ContactService(sc,addressBook);
 
         /**
          * repeat is true
