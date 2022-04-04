@@ -62,6 +62,10 @@ public class AddressBook {
      */
     public Contact searchByName(String name) {
         for (int i = 0; i < addressList.size(); ++i) {
+            /**
+             * contains =
+             * Returns true if and only if this string contains the specified sequence of char values.
+             */
             if (addressList.get(i).getName().contains(name))
             /**
              * calling get method from addressList object
@@ -98,6 +102,34 @@ public class AddressBook {
     }
 
     /**
+     * create a method name as viewByState, this is parameterized method
+     * in this method peron sreach by state or view by state in address book
+     * @param state - person state in adress book
+     * @return list
+     */
+    public ArrayList<Contact> viewByState(String state) {
+        /**
+         * create a list object name as list ,
+         * all data store in list
+         */
+        ArrayList<Contact> list = new ArrayList<Contact>();
+        for (int i = 0; i < addressList.size(); ++i) {
+            /**
+             * equalsIgnoreCase :-
+             * Compares this String to another String, ignoring case considerations.
+             * Two strings are considered equal ignoring case
+             * if they are of the same length and corresponding characters in the two strings are equal ignoring case
+             */
+            if (addressList.get(i).getState().equalsIgnoreCase(state))
+            /**
+             * calling add method from list object
+             */
+                list.add(addressList.get(i));
+        }
+        return list;
+    }
+
+    /**
      * create method named as deleteContact.
      * this is parameterized method .
      * it is boolean data type method which means this method output must be true or false.
@@ -106,6 +138,12 @@ public class AddressBook {
      */
     public boolean deleteContact(String name) {
         for (int i = 0; i < addressList.size(); ++i) {
+            /**
+             * equalsIgnoreCase :-
+             * Compares this String to another String, ignoring case considerations.
+             * Two strings are considered equal ignoring case
+             * if they are of the same length and corresponding characters in the two strings are equal ignoring case
+             */
             if (addressList.get(i).getName().equalsIgnoreCase(name)) {
                 /**
                  * calling remove method for delete a person name in address book from addressList object

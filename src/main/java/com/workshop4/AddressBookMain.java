@@ -10,8 +10,8 @@ package com.workshop4;
  * UC6 :- Refactor to add multiple Address Book to the System Each Address Book has a unique Name
  * UC7 :- Ability to ensure there is no Duplicate Entry of the same Person in a particular Address Book
  * UC8 :- Ability to search Person in a City or State across the multiple AddressBook
+ * UC9 :- Ability to view Persons by City or State
  */
-
 
 /**
  * import scanner class
@@ -109,7 +109,7 @@ public class AddressBookMain {
         String city = sc.nextLine();
         System.out.println("Contact for given city:");
         /**
-         * variable 
+         * variable
          */
         int count = 1;
         for (Contact contact: addressBooks.searchByCity(city)) {
@@ -118,6 +118,27 @@ public class AddressBookMain {
                 count++;
             }
         }
+    }
+
+    /**
+     * create a method name a viewByState,this is parameterized method
+     * in this method we view a person by there state in address book
+     * @param addressBooks - all data saved
+     * @param sc - sacnner i/p
+     */
+    public static void viewByState(MultipleAddressBooks addressBooks, Scanner sc) {
+        System.out.println("Enter the state:");
+        String state = sc.nextLine();
+        System.out.println("Contact for given state:");
+        int count = 1;
+        for (Contact contact: addressBooks.viewByState(state)) {
+            if (contact!=null) {
+                System.out.println(count+"\n"+contact+"\n");
+                count++;
+            }
+        }
+        if (count==1)
+            System.out.println("Not found");
     }
 
     /**
@@ -157,9 +178,12 @@ public class AddressBookMain {
              * main option :-
              *            1) add new AddressBook
              *            2) View or open existing AddressBook
+             *            3) search and view by city
+             *            4) search and view by state
+             *            5) exist
              */
             System.out
-                    .println("Main Options:\n1 (Add new AddressBook)\n2 (View or open existing AddressBook)\n3 (Search by city) \n4 (Exit)");
+                    .println("Main Options:\n1 (Add new AddressBook)\n2 (View or open existing AddressBook)\n3 (Search and view by city) \n4 (Search and view by state)\n5 (Exit)");
             int option = Integer.parseInt(sc.nextLine());
             /**
              * using switch case for option
@@ -192,10 +216,13 @@ public class AddressBookMain {
                      */
                     searchByCity(addressBooks, sc);
                     break; //todo
+                case 4:
+                    viewByState(addressBooks, sc);
+                    break;
                 /**
                  * if u choose option 4 ,then exist in all this process
                  */
-                case 4:
+                case 5:
                     repeat = false;
                     break;
                 /**

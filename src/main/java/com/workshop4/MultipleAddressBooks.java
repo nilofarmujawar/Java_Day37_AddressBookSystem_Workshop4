@@ -78,6 +78,41 @@ public class MultipleAddressBooks {
                 list.add(contact);
             }
         }
+        /**
+         * filter :-
+         * Returns a stream consisting of the elements of this stream that match the given predicate.
+         * Collector :-
+         * Implementations of Collector that implement various useful reduction operations, such as accumulating elements into collections,
+         * summarizing elements according to various criteria, etc
+         * distinct :-
+         * Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
+         */
+        return list.stream().filter(contact->contact!= null).distinct().collect(Collectors.toList());
+    }
+
+    /**
+     * create a method name as viewByState, this is parameterized method
+     * in this method we search or view person by there state in address book
+     * @param state - person state in address book.
+     * @return list
+     */
+    public List<Contact> viewByState(String state) {
+        List<Contact> list = new ArrayList<Contact>();
+        for (Map.Entry entry: addressBooks.entrySet()) {
+            List<Contact> contactList = ((AddressBook)entry.getValue()).viewByState(state);
+            for (Contact contact: contactList) {
+                list.add(contact);
+            }
+        }
+        /**
+         * filter :-
+         * Returns a stream consisting of the elements of this stream that match the given predicate.
+         * Collector :-
+         * Implementations of Collector that implement various useful reduction operations, such as accumulating elements into collections,
+         * summarizing elements according to various criteria, etc
+         * distinct :-
+         * Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
+         */
         return list.stream().filter(contact->contact!= null).distinct().collect(Collectors.toList());
     }
 }
