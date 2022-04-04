@@ -26,7 +26,7 @@ class ValidatorTest {
         } catch (ContactRegistrationException e) {
             System.out.println(e.getMessage());
         }
-    }
+    } 
 
     @Test
     public void testValidateLastName() {
