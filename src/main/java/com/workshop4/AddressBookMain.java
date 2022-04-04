@@ -11,6 +11,7 @@ package com.workshop4;
  * UC7 :- Ability to ensure there is no Duplicate Entry of the same Person in a particular Address Book
  * UC8 :- Ability to search Person in a City or State across the multiple AddressBook
  * UC9 :- Ability to view Persons by City or State
+ * UC10 :- Ability to get number of contact persons i.e. count by City or State
  */
 
 /**
@@ -118,6 +119,15 @@ public class AddressBookMain {
                 count++;
             }
         }
+        /**
+         * Ability to get number of contact persons i.e. count by City
+         */
+        if (count==1) {
+            System.out.println("Not found");
+            return;
+        }
+        count--;
+        System.out.println("Count of Persons from given City: "+count);
     }
 
     /**
@@ -137,8 +147,15 @@ public class AddressBookMain {
                 count++;
             }
         }
-        if (count==1)
+        /**
+         * Ability to get number of contact persons i.e. count by State
+         */
+        if (count==1) {
             System.out.println("Not found");
+            return;
+        }
+        count--;
+        System.out.println("Count of Persons from given State: "+count);
     }
 
     /**
