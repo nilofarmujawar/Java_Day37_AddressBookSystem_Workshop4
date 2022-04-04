@@ -9,6 +9,7 @@ package com.workshop4;
  * UC5 :- Ability to add multiple person to Address Book
  * UC6 :- Refactor to add multiple Address Book to the System Each Address Book has a unique Name
  * UC7 :- Ability to ensure there is no Duplicate Entry of the same Person in a particular Address Book
+ * UC8 :- Ability to search Person in a City or State across the multiple AddressBook
  */
 
 
@@ -95,6 +96,31 @@ public class AddressBookMain {
     }
 
     /**
+     * create a method name as searchByCity,this is parameterized method
+     * in this method we search person by there city name
+     * @param addressBooks - diff address book data stored
+     * @param sc - sacnner i/p
+     */
+    public static void searchByCity(MultipleAddressBooks addressBooks, Scanner sc) {
+        /**
+         * enter persons city name
+         */
+        System.out.println("Enter the city:");
+        String city = sc.nextLine();
+        System.out.println("Contact for given city:");
+        /**
+         * variable 
+         */
+        int count = 1;
+        for (Contact contact: addressBooks.searchByCity(city)) {
+            if (contact!=null) {
+                System.out.println(count+"\n"+contact+"\n");
+                count++;
+            }
+        }
+    }
+
+    /**
      * create a main method,all program execute in main method
      * @param args - no arguments its default
      */
@@ -132,7 +158,8 @@ public class AddressBookMain {
              *            1) add new AddressBook
              *            2) View or open existing AddressBook
              */
-            System.out.println("Main Options:\n1 (Add new AddressBook)\n2 (View or open existing AddressBook)\n3 (Exit)");
+            System.out
+                    .println("Main Options:\n1 (Add new AddressBook)\n2 (View or open existing AddressBook)\n3 (Search by city) \n4 (Exit)");
             int option = Integer.parseInt(sc.nextLine());
             /**
              * using switch case for option
@@ -157,13 +184,22 @@ public class AddressBookMain {
                     viewExistingAddressBook(addressBooks, addressBookService, sc);
                     break;
                 /**
-                 * if u choose 3 then exist all this process
+                 * if u choose option 3 then
                  */
                 case 3:
+                    /**
+                     * person search by city in address book
+                     */
+                    searchByCity(addressBooks, sc);
+                    break; //todo
+                /**
+                 * if u choose option 4 ,then exist in all this process
+                 */
+                case 4:
                     repeat = false;
                     break;
                 /**
-                 * if u choose in valid option then display this msg on console
+                 * if u choose 5 like this that time default statement is execute
                  */
                 default:
                     System.out.println("Invalid Entry");

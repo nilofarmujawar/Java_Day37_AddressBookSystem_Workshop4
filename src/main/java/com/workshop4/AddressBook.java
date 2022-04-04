@@ -72,6 +72,32 @@ public class AddressBook {
     }
 
     /**
+     * create a method name as searchByCity,this is parameterized method
+     * @param city -persons city name
+     * @return list
+     */
+    public ArrayList<Contact> searchByCity(String city) {
+        /**
+         * create array list object name as list
+         */
+        ArrayList<Contact> list = new ArrayList<Contact>();
+        for (int i = 0; i < addressList.size(); ++i) {
+            /**
+             * equalsIgnoreCase :-
+             * Compares this String to another String, ignoring case considerations.
+             * Two strings are considered equal ignoring case
+             * if they are of the same length and corresponding characters in the two strings are equal ignoring case
+             */
+            if (addressList.get(i).getCity().equalsIgnoreCase(city))
+            /**
+             * calling add method from list object
+             */
+                list.add(addressList.get(i));
+        }
+        return list;
+    }
+
+    /**
      * create method named as deleteContact.
      * this is parameterized method .
      * it is boolean data type method which means this method output must be true or false.

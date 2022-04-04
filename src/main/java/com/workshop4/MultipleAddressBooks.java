@@ -3,7 +3,11 @@ package com.workshop4;
 /**
  * import hashmap class
  */
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * create a class name as MultipleAddressBooks
@@ -49,5 +53,31 @@ public class MultipleAddressBooks {
             }
         }
         return null;
+    }
+
+    /**
+     * create a method name as search city,this is parameterized method
+     * in this method we search the person by there city name
+     * @param city - persons city
+     * @return-list
+     */
+    public List<Contact> searchByCity(String city) {
+        /**
+         * create a list object name as list
+         */
+        List<Contact> list = new ArrayList<Contact>();
+        for (Map.Entry entry: addressBooks.entrySet()) {
+            List<Contact> contactList = ((AddressBook)entry.getValue()).searchByCity(city);
+            /**
+             * using for each loop for contact
+             */
+            for (Contact contact: contactList) {
+                /**
+                 * calling add method from list object
+                 */
+                list.add(contact);
+            }
+        }
+        return list.stream().filter(contact->contact!= null).distinct().collect(Collectors.toList());
     }
 }
